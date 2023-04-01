@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unity Scripting Notes</title>
+  </head>
+  <body>
+    <div class="main language-c#">
+      <div class="content">
+        <h1>Quaternion.Euler</h1>
+        <p>
+          In Unity, Quaternion.Euler is a static function that creates a
+          Quaternion (a mathematical representation of 3D rotation) from Euler
+          angles (the three angles that represent a 3D rotation in terms of
+          pitch, yaw, and roll). The function takes in three parameters, which
+          are the Euler angles for the rotation around the x-axis, y-axis, and
+          z-axis, respectively. It returns a Quaternion that represents the
+          rotation.
+        </p>
+        <p>
+          Here's an example of how to use the Quaternion.Euler function to
+          create a Quaternion for a 90-degree rotation around the y-axis:
+        </p>
+        <pre><code>Quaternion rotation = Quaternion.Euler(0, 90, 0);
+</code></pre>
+      </div>
+      <div class="content">
+        <h2></h2>
+        <p>In Unity, you can get a reference to another script component on the same GameObject or on another GameObject using the GetComponent function.
+        </p>
+        <p>Here's an example of how you could use GetComponent to get a reference to another script component:
+
+        </p>
+        <pre><code>public class MyScript : MonoBehaviour
+{
+    private OtherScript otherScript;
+
+    private void Start()
+    {
+        // Get a reference to the OtherScript component on the same GameObject
+        otherScript = GetComponent<OtherScript>();
+        
+        if (otherScript == null)
+        {
+            Debug.LogError("OtherScript component not found on the same GameObject as MyScript.");
+        }
+    }
+}
+</code></pre>
+<p>In this example, the Start function uses GetComponent to get a reference to the OtherScript component on the same GameObject as MyScript. If the OtherScript component is not found, the Debug.LogError function is called to print an error message to the console.
+
+</p>
+<h2>Get The Script From Other GameObjects</h2>
+<p>You can also use GetComponent to get a reference to a script component on another GameObject by passing in a reference to the GameObject that has the component:
+
+</p>
+<pre><code>public class MyScript : MonoBehaviour
+{
+    public GameObject otherGameObject;
+    private OtherScript otherScript;
+
+    private void Start()
+    {
+        // Get a reference to the OtherScript component on the otherGameObject GameObject
+        otherScript = otherGameObject.GetComponent<OtherScript>();
+
+        if (otherScript == null)
+        {
+            Debug.LogError("OtherScript component not found on the otherGameObject GameObject.");
+        }
+    }
+}
+</code></pre>
+<pre><code>It's generally best to use GetComponent to get a reference to a script component, rather than directly accessing the script or using the GameObject reference to access the script.
+
+</code></pre>
+      </div>
+    </div>
+  </body>
+</html>
